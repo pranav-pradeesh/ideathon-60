@@ -9,6 +9,16 @@ dependency in the whole project is the Postgres driver used by the API.
 
 **Deploying it: see [DEPLOY.md](DEPLOY.md).**
 
+[![Tests](https://github.com/pranav-pradeesh/ideathon-60/actions/workflows/test.yml/badge.svg)](https://github.com/pranav-pradeesh/ideathon-60/actions/workflows/test.yml)
+
+## Tests
+
+```bash
+npm test   # node --test, no dependencies
+```
+
+`test/validate.test.js` covers the server-side registration rules: fixed roles by position, team size, case-insensitive duplicate names, duplicate phones after normalisation, the honeypot and malformed bodies. `test/auth.test.js` covers the admin session: constant-time password check, HMAC-signed tokens rejected when the expiry or signature is tampered with, expiry after 8 hours, and every session invalidated on a password change.
+
 ## Pages
 
 | File | What it is |
